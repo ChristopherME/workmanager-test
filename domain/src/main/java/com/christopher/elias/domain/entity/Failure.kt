@@ -35,4 +35,6 @@ sealed class Failure {
 
     /** This class is for feature specific DATA -> DOMAIN MAPPERS exceptions.*/
     data class DataToDomainMapperFailure(val mapperException: String?) : Failure()
+
+    data class FileWriteException(val message: String): Failure()
 }

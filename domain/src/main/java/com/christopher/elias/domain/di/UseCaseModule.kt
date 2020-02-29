@@ -2,6 +2,7 @@ package com.christopher.elias.domain.di
 
 import com.christopher.elias.domain.usecase.GetTodoUseCase
 import com.christopher.elias.domain.usecase.GetTodosUseCase
+import com.christopher.elias.domain.usecase.WriteOnFileUseCase
 import org.koin.dsl.module
 
 /**
@@ -16,4 +17,5 @@ import org.koin.dsl.module
 val useCasesModule = module {
     factory { GetTodoUseCase(get()) }
     factory { GetTodosUseCase(get()) }
+    factory { WriteOnFileUseCase(get()) }
 }

@@ -31,7 +31,7 @@ sealed class Either<out L, out R> {
     fun <L> left(a: L) = Left(a)
     fun <R> right(b: R) = Right(b)
 
-    fun either(fnL: (L) -> Any, fnR: (R) -> Any): Any =
+    fun either(fnL: (L) -> Unit, fnR: (R) -> Unit): Any =
         when (this) {
             is Left -> fnL(a)
             is Right -> fnR(b)

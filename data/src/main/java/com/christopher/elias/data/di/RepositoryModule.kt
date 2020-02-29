@@ -1,6 +1,8 @@
 package com.christopher.elias.data.di
 
+import com.christopher.elias.data.repository.FileRepositoryImpl
 import com.christopher.elias.data.repository.TodoRepositoryImpl
+import com.christopher.elias.domain.repository.FileRepository
 import com.christopher.elias.domain.repository.TodoRepository
 import org.koin.dsl.module
 
@@ -14,5 +16,5 @@ import org.koin.dsl.module
  **/
 
 val repositoryModule = module {
-    single<TodoRepository> { TodoRepositoryImpl(get(), get()) }
+    single<FileRepository> { FileRepositoryImpl(get()) }
 }
