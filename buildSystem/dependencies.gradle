@@ -15,6 +15,9 @@ ext {
     // Fragment version for use FragmentContainerView instead of FrameLayout
     def fragmentVersion = '1.2.1'
 
+    // WorkManager
+    def workVersion = "2.3.2"
+
 
     /*
      * Presentation dependencies
@@ -34,7 +37,9 @@ ext {
             // For ViewModel features
             koinForViewModel : "org.koin:koin-androidx-viewmodel:$koinVersion",
             // New fragment features
-            fragmentKotlin: "androidx.fragment:fragment-ktx:$fragmentVersion"
+            fragmentKotlin: "androidx.fragment:fragment-ktx:$fragmentVersion",
+            // Kotlin + coroutines
+            workManager: "androidx.work:work-runtime-ktx:$workVersion"
     ]
 
     presentationTestDependencies = [
