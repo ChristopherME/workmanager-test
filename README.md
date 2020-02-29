@@ -1,4 +1,6 @@
-# Coroutines Base Project
+# Workmanager Testing
+
+Write on file every X minutes or hours with the structure of the actual base project.
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
@@ -9,22 +11,13 @@ This project contains the following.
   - [Clean Architecture]
   - Modularization per layer (Basic).
   - Unit Test
-
-Thanks to [Fernando Cejas], [Paulo Sato], [Mario Lorenzo] and [Ryan M.Key] for provide a lot of great articles, videos, blogs that help incredibly to make this project. You guys really rock.
+  - WorkManager
 
 ### Development
 
 Want to contribute? Great!
 
 find and fix bugs, make a PR.
-
-
-### Todos
-
- - Write MORE Tests.
- - Write Instrumented Tests.
- - Prevent ciclic imports.
- - Improve the code.
 
 License
 ----
