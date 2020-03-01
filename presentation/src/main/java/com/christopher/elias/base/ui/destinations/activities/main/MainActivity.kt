@@ -38,12 +38,6 @@ class MainActivity : AppCompatActivity() {
             .setConstraints(constraints)
             .build()
 
-        WorkManager.getInstance(this).enqueue(saveRequest)
-        WorkManager.getInstance(this).getWorkInfoByIdLiveData(saveRequest.id)
-            .observe(this, Observer { workInfo ->
-                if (workInfo != null && workInfo.state == WorkInfo.State.SUCCEEDED) {
-                    Toast.makeText(this, "Worker Succeed Bitch!", Toast.LENGTH_LONG).show()
-                }
-            })
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork("WRITE-ON-FILE-WORKER", ExistingPeriodicWorkPolicy.KEEP, saveRequest)
     }
 }
