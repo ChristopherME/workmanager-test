@@ -12,9 +12,6 @@ ext {
     // Kotlin Coroutines
     def coroutinesVersion = '1.3.3'
 
-    // Fragment version for use FragmentContainerView instead of FrameLayout
-    def fragmentVersion = '1.2.1'
-
     // WorkManager
     def workVersion = "2.3.2"
 
@@ -36,8 +33,6 @@ ext {
             koin : "org.koin:koin-android:$koinVersion",
             // For ViewModel features
             koinForViewModel : "org.koin:koin-androidx-viewmodel:$koinVersion",
-            // New fragment features
-            fragmentKotlin: "androidx.fragment:fragment-ktx:$fragmentVersion",
             // Kotlin + coroutines
             workManager: "androidx.work:work-runtime-ktx:$workVersion"
     ]
@@ -66,23 +61,11 @@ ext {
             androidXcore : 'androidx.arch.core:core-testing:2.1.0'
     ]
 
-
-    def retrofitVersion = "2.7.1"
-    def roomVersion = '2.1.0'
-    def loggingInterceptorVersion = '4.2.1'// Requests logging
-    roomDependencies = [
-            roomCompiler : "androidx.room:room-compiler:$roomVersion"
-    ]
-
     /*
      * Data Dependencies
      */
     dataDependencies = [
             koin : "org.koin:koin-android:$koinVersion",
-            retrofit : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-            loggingInterceptor : "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion",
-            gsonConverter :  "com.squareup.retrofit2:converter-gson:$retrofitVersion",
-            roomDataBase : "androidx.room:room-runtime:$roomVersion",
             coroutinesCore : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
             coroutinesAndroid : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     ]
@@ -91,7 +74,6 @@ ext {
             junit : 'junit:junit:4.12',
             androidXcore : 'androidx.arch.core:core-testing:2.1.0',
             coroutinesTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion",
-            koinTest: "org.koin:koin-test:$koinVersion",
-            jsonForJVM: 'org.json:json:20140107'
+            koinTest: "org.koin:koin-test:$koinVersion"
     ]
 }

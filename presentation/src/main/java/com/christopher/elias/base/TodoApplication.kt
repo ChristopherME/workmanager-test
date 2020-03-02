@@ -1,8 +1,6 @@
 package com.christopher.elias.base
 
 import android.app.Application
-import com.christopher.elias.base.di.mapperPresentationModule
-import com.christopher.elias.base.di.viewModelModule
 import com.christopher.elias.data.di.*
 import com.christopher.elias.domain.di.useCasesModule
 import org.koin.android.ext.koin.androidContext
@@ -20,8 +18,7 @@ class TodoApplication : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@TodoApplication)
-            modules(arrayListOf(localLoggerModule, preferencesModule, mapperDataModule, repositoryModule,
-                useCasesModule, mapperPresentationModule, viewModelModule))
+            modules(arrayListOf(localLoggerModule, repositoryModule, useCasesModule))
         }
     }
 }

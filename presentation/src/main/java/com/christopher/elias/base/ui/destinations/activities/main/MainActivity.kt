@@ -2,9 +2,6 @@ package com.christopher.elias.base.ui.destinations.activities.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.work.*
 import com.christopher.elias.base.R
 import com.christopher.elias.base.worker.WriteOnFileWorker
@@ -19,14 +16,6 @@ class MainActivity : AppCompatActivity() {
         tvStartWorker.setOnClickListener {
             startPeriodicWorker()
         }
-    }
-
-    private fun startOneTimeWorker() {
-        Log.i("Main", "startWorker")
-        val writeOnFileWorker = OneTimeWorkRequestBuilder<WriteOnFileWorker>()
-            .build()
-        WorkManager.getInstance(this).enqueue(writeOnFileWorker)
-
     }
 
     private fun startPeriodicWorker() {
