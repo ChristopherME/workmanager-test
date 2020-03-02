@@ -1,15 +1,14 @@
 # Workmanager Testing
 
-Write on file every X minutes or hours with the structure of the actual base project.
+Write on a local file every 15 minutes with the structure of the actual [base project].
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 This project contains the following.
 
   - [Kotlin Coroutines]
-  - [Clean Architecture]
-  - Modularization per layer (Basic).
-  - WorkManager
+  - [Clean Architecture] & Modularization per layer (Basic)
+  - [WorkManager]
 
 ### Development
 
@@ -20,7 +19,7 @@ find and fix bugs, make a PR.
 License
 ----
 ```
-Copyright 2019 Christopher Elias.
+Copyright 2020 Christopher Elias.
 
 Licensed to the Apache Software Foundation (ASF) under one or more contributor
 license agreements. See the NOTICE file distributed with this work for
@@ -40,3 +39,5 @@ the License.
 
    [Kotlin Coroutines]: <https://kotlinlang.org/docs/reference/coroutines-overview.html>
    [Clean Architecture]: <https://proandroiddev.com/clean-architecture-data-flow-dependency-rule-615ffdd79e29>
+   [base project]: <https://github.com/ChristopherME/base-project>
+   [WorkManager] : <https://developer.android.com/topic/libraries/architecture/workmanager>
