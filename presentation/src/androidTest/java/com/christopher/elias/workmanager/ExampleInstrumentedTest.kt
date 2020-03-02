@@ -1,4 +1,4 @@
-package com.christopher.elias.base
+package com.christopher.elias.workmanager
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,10 +1,10 @@
-package com.christopher.elias.base.ui.destinations.activities.main
+package com.christopher.elias.workmanager.ui.destinations.activities.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.work.*
-import com.christopher.elias.base.R
-import com.christopher.elias.base.worker.WriteOnFileWorker
+import com.christopher.elias.workmanager.R
+import com.christopher.elias.workmanager.worker.WriteOnFileWorker
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.TimeUnit
 

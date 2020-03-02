@@ -1,9 +1,8 @@
-package com.christopher.elias.base.worker
+package com.christopher.elias.workmanager.worker
 
 import android.content.Context
 import android.util.Log
 import androidx.work.CoroutineWorker
-import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.christopher.elias.domain.usecase.WriteOnFileUseCase
 import kotlinx.coroutines.*
