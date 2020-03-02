@@ -7,10 +7,8 @@ Write on file every X minutes or hours with the structure of the actual base pro
 This project contains the following.
 
   - [Kotlin Coroutines]
-  - [MVVM]
   - [Clean Architecture]
   - Modularization per layer (Basic).
-  - Unit Test
   - WorkManager
 
 ### Development
@@ -39,11 +37,6 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
 ```
-   [Fernando Cejas]: <https://fernandocejas.com/>
-   [Mario Lorenzo]: <https://github.com/sanogueralorenzo>
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-   [Paulo Sato]: <https://proandroiddev.com/@paulocns>
-   [Ryan M.Key]: <https://www.youtube.com/user/gosuddr93/videos>
+
    [Kotlin Coroutines]: <https://kotlinlang.org/docs/reference/coroutines-overview.html>
-   [MVVM]: <https://developer.android.com/jetpack/docs/guide>
    [Clean Architecture]: <https://proandroiddev.com/clean-architecture-data-flow-dependency-rule-615ffdd79e29>
