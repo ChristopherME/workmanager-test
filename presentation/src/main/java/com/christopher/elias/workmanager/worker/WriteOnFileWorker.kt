@@ -15,7 +15,9 @@ class WriteOnFileWorker(context: Context,
     private val writeOnFileUseCase : WriteOnFileUseCase by inject()
 
     override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
+        Log.i(this.javaClass.simpleName, "do work")
         val deferred = async {
+            Log.i(this.javaClass.simpleName, "Invoke writeOnFileUseCase")
             writeOnFileUseCase.invoke(this) {
                 it.either({ failure ->
                     Log.e(this.javaClass.simpleName, "failure: $failure")
@@ -25,8 +27,10 @@ class WriteOnFileWorker(context: Context,
                 })
             }
         }
+        Log.i(this.javaClass.simpleName, "await for result")
         deferred.await()
         deferred.cancel()
+        Log.i(this.javaClass.simpleName, "deferred job canceled. sent Result Success.")
         Result.success()
     }
 }

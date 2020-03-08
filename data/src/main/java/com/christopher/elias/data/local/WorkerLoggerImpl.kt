@@ -1,6 +1,7 @@
 package com.christopher.elias.data.local
 
 import android.content.Context
+import android.util.Log
 import com.christopher.elias.domain.entity.Either
 import com.christopher.elias.domain.entity.Failure
 import kotlinx.coroutines.Dispatchers
@@ -15,9 +16,11 @@ class WorkerLoggerImpl(private val context: Context) : WorkerLogger {
 
     override suspend fun write(): Either<Failure, Unit> {
         return withContext(Dispatchers.IO) {
+            Log.i(this.javaClass.simpleName, "write")
             val loggerRoot = File(context.getExternalFilesDir(null), "worker-logger")
             // If logger file doesn't exist yet then...
             if (!loggerRoot.exists()) {
+                Log.i(this.javaClass.simpleName, "logger file root doesn't exist. creating root...")
                 // write the bastard.
                 loggerRoot.mkdirs()
             }
@@ -31,6 +34,7 @@ class WorkerLoggerImpl(private val context: Context) : WorkerLogger {
             } finally {
                 bufferedWriter.close()
             }
+            Log.i(this.javaClass.simpleName, "logger file wrote successfully")
             Either.Right(Unit)
         }
     }
