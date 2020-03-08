@@ -1,5 +1,6 @@
 package com.christopher.elias.domain.di
 
+import com.christopher.elias.domain.usecase.WriteOnFileByAlarmUseCase
 import com.christopher.elias.domain.usecase.WriteOnFileUseCase
 import org.koin.dsl.module
 
@@ -14,4 +15,5 @@ import org.koin.dsl.module
 
 val useCasesModule = module {
     factory { WriteOnFileUseCase(get()) }
+    factory { WriteOnFileByAlarmUseCase(get()) }
 }

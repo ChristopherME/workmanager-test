@@ -14,10 +14,16 @@ import java.util.*
 
 class WorkerLoggerImpl(private val context: Context) : WorkerLogger {
 
-    override suspend fun write(): Either<Failure, Unit> {
+    override suspend fun write(fromWorker: Boolean): Either<Failure, Unit> {
         return withContext(Dispatchers.IO) {
             Log.i(this.javaClass.simpleName, "write")
-            val loggerRoot = File(context.getExternalFilesDir(null), "worker-logger")
+            val loggerRoot = if (fromWorker) {
+                Log.i(this.javaClass.simpleName, "Write logger from WORKER")
+                File(context.getExternalFilesDir(null), "worker-logger")
+            } else {
+                Log.i(this.javaClass.simpleName, "Write from ALARM")
+                File(context.getExternalFilesDir(null), "alarm-logger")
+            }
             // If logger file doesn't exist yet then...
             if (!loggerRoot.exists()) {
                 Log.i(this.javaClass.simpleName, "logger file root doesn't exist. creating root...")
