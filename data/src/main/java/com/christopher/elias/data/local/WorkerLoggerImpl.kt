@@ -13,24 +13,31 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class WorkerLoggerImpl(private val context: Context) : WorkerLogger {
+    
+    companion object {
+        private const val TAG = "WorkerLoggerImpl"
+    }
 
     override suspend fun write(fromWorker: Boolean): Either<Failure, Unit> {
         return withContext(Dispatchers.IO) {
-            Log.i(this.javaClass.simpleName, "write")
             val loggerRoot = if (fromWorker) {
-                Log.i(this.javaClass.simpleName, "Write logger from WORKER")
+                Log.i(TAG, "Write logger from WORKER")
                 File(context.getExternalFilesDir(null), "worker-logger")
             } else {
-                Log.i(this.javaClass.simpleName, "Write from ALARM")
+                Log.i(TAG, "Write from ALARM")
                 File(context.getExternalFilesDir(null), "alarm-logger")
             }
-            // If logger file doesn't exist yet then...
+            // If logger file ROOT doesn't exist yet then...
             if (!loggerRoot.exists()) {
-                Log.i(this.javaClass.simpleName, "logger file root doesn't exist. creating root...")
-                // write the bastard.
+                Log.i(TAG, "logger file root doesn't exist. creating root...")
+                // create ROOT of the bastard.
                 loggerRoot.mkdirs()
             }
-            val loggerFile = File(loggerRoot, "logger.txt")
+            val loggerFile = if (fromWorker) {
+                File(loggerRoot, "logger-w.txt")
+            } else {
+                File(loggerRoot, "logger-a.txt")
+            }
             val bufferedWriter = BufferedWriter(FileWriter(loggerFile, true))
             try {
                 val dateFormat = SimpleDateFormat("MMM dd, yyyy HH:mm:ss", Locale.getDefault())
@@ -40,7 +47,7 @@ class WorkerLoggerImpl(private val context: Context) : WorkerLogger {
             } finally {
                 bufferedWriter.close()
             }
-            Log.i(this.javaClass.simpleName, "logger file wrote successfully")
+            Log.i(TAG, "logger file wrote successfully")
             Either.Right(Unit)
         }
     }

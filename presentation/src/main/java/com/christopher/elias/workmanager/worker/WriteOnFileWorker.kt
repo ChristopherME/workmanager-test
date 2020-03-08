@@ -12,25 +12,28 @@ import org.koin.core.inject
 class WriteOnFileWorker(context: Context,
                         workerParams: WorkerParameters) : CoroutineWorker(context, workerParams), KoinComponent {
 
+    companion object {
+        private const val TAG = "WriteOnFileWorker"
+    }
     private val writeOnFileUseCase : WriteOnFileUseCase by inject()
 
     override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
-        Log.i(this.javaClass.simpleName, "do work")
+        Log.i(TAG, "do work")
         val deferred = async {
-            Log.i(this.javaClass.simpleName, "Invoke writeOnFileUseCase")
+            Log.i(TAG, "Invoke writeOnFileUseCase")
             writeOnFileUseCase.invoke(this) {
                 it.either({ failure ->
-                    Log.e(this.javaClass.simpleName, "failure: $failure")
+                    Log.e(TAG, "failure: $failure")
                     Result.failure()
                 }, {
-                    Log.i(this.javaClass.simpleName, "Content was wrote.")
+                    Log.i(TAG, "Content was wrote.")
                 })
             }
         }
-        Log.i(this.javaClass.simpleName, "await for result")
+        Log.i(TAG, "await for result")
         deferred.await()
         deferred.cancel()
-        Log.i(this.javaClass.simpleName, "deferred job canceled. sent Result Success.")
+        Log.i(TAG, "deferred job canceled. sent Result Success.")
         Result.success()
     }
 }

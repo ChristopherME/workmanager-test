@@ -5,6 +5,7 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import com.christopher.elias.workmanager.services.WriteOnFileService
 import java.util.*
 
@@ -32,6 +33,7 @@ class FileBroadcastReceiver : BroadcastReceiver() {
             val pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0)
             am.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
         } else {
+            Log.i(this.javaClass.simpleName, "Fire WriteOnFileService")
             context?.startService(Intent(context, WriteOnFileService::class.java))
         }
     }
